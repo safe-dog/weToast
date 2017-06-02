@@ -35,11 +35,23 @@
   font-size: 16px;
   font-weight: bold;
   color: #FFF;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 .weToast-content {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 20px;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
 }
 .weToast-icon {
   width: 20px;
