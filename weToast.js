@@ -29,6 +29,9 @@ var ICONS = {
   warning: 'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAHdElNRQfhBgIQJgTsELvhAAABdUlEQVRIx7WVMUvDUBSFz32KBBo7FEXdChW6hNK52O4VhdKt4C/oD/B/dHMt2A6uCtK5gk5CFYeCrnVoNzN7HBJaNO/mxYpnSeDc77z7Xm4S4H9Ewzb7nDPSnH22abLCFY5o14gVF5zngOkaMK/jVWZT1Y7XM+IkWU/iwS9wkgwiTmLcx4elqcvl3ZnF3ZZwtX7PuspF7N5a3d4KLyptXsX+o+IXgWg4zpXHshNf9xU/4uipB/Ucd6DLMwACdTB24VJgADRUe4+ugIYBUEspEEdAzQAo/yGgbADkUgo2HAE5A2CRUrDpCFgYAJM/BEwMgHFKwZYjYCwAS3jFujoUgILPtQOMAYToKvaDiIgI3hW/K9Gk0Vcm/T6q40zx/fhtlBCdNdrvSLj6IgHXOEluAS8AgGMcJLwbnH4bU+aWv5EsmjM5vyyoe/2pGQvWTdHjMAM+pJdyMmw68GaG42WLUws6ZStZm/K+8wgVlOAjxBue5M5e9QVEd3pTUnO/GQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNi0wMlQxNjozODowNCswODowMIP4W10AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDYtMDJUMTY6Mzg6MDQrMDg6MDDypePhAAAAAElFTkSuQmCC'
 }
 
+// 隐藏卡片时间器
+var HIDDEN_TIMMER = null;
+
 class weToast {
   /**
    * 初始化
@@ -87,16 +90,22 @@ class weToast {
     const msg = MSG_QUEUE.shift();
     if (!msg) return;
 
-    IS_SHOW = true;
     this.setData(msg);
+    IS_SHOW = true;
 
-    setTimeout(this._hide.bind(this), TOAST_CONFIG['delay'] + TOAST_CONFIG['duration']);
+    HIDDEN_TIMMER = setTimeout(
+      this._hide.bind(this),
+      TOAST_CONFIG['delay'] + TOAST_CONFIG['duration']
+    );
   }
 
   /**
    * 隐藏消息
    */
   _hide () {
+    if (HIDDEN_TIMMER) {
+      clearTimeout(HIDDEN_TIMMER);
+    }
     this.setData({
       weToastTitle: '',
       weToastContent: '',
