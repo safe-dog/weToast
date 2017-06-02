@@ -1,0 +1,29 @@
+.weToast-container {
+  position: fixed;
+  bottom: -100px;
+  max-height: 80px;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+}
+.weToast-box {
+  width: 200px;
+  background-color: rgba(76, 175, 80, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #CCC;
+  box-shadow: 0px 2px 10px 3px rgba(200,200,200,0.6);
+}
+.weToast-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFF;
+}
+.weToast-content {
+  font-size: 14px;
+  color: #EEE;
+  line-height: 20px;
+}

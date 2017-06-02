@@ -1,0 +1,13 @@
+<!--提示卡片模版-->
+<view
+  class="weToast-container"
+  animation="{{ weToastAnimation }}">
+  <view
+    class="weToast-box"
+    style="background-color: {{ weToastBoxBG }}">
+    <view class="weToast-title" wx:if="{{ !!weToastTitle }}">
+      {{ weToastTitle }}
+    </view>
+    <view class="weToast-content">{{ weToastContent }}</view>
+  </view>
+</view>
