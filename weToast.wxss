@@ -19,6 +19,9 @@
   display: flex;
   flex-direction: row;
 }
+.weToast-box-hover {
+  opacity: 0.8;
+}
 .weToast-box-r {
   flex: 1;
 }

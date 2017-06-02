@@ -4,6 +4,7 @@
   animation="{{ weToastAnimation }}">
   <view
     class="weToast-box"
+    hover-class="weToast-box-hover"
     style="background-color: {{ weToastBoxBG }}">
     <view class="weToast-box-l">
       <image src="data:image/png;base64,{{ weToastIcon }}" class="weToast-icon"></image>
