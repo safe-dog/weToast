@@ -39,8 +39,13 @@ class weToast {
     animation.bottom(-100).opacity(0).scale(0).step();
     this._hideAnimation = animation.export();
 
-    // 初始化动画
-    this._hide();
+    // 初始化数据
+    this.setData({
+      weToastTitle: '',
+      weToastContent: '',
+      weToastBoxBG: TOAST_CONFIG['defaultBG'],
+      weToastAnimation: this._hideAnimation
+    });
   }
 
   /**
