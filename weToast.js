@@ -39,7 +39,8 @@ class weToast {
    * page = Page对象(this)
    */
   constructor (page) {
-    this.setData = page.setData.bind(page);
+    this.page = page;
+    // this.setData = page.setData.bind(page);
     page.weToastHideHandler = this._hide.bind(this);
 
     // 配置动画
@@ -64,6 +65,12 @@ class weToast {
       weToastBoxBG: TOAST_CONFIG['defaultBG'],
       weToastAnimation: this._hideAnimation
     });
+  }
+
+  setData (opt) {
+    this.page.setData({
+      weToast: opt
+    })
   }
 
   /**
