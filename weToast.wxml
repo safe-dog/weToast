@@ -2,7 +2,7 @@
 <view
   class="weToast-container"
   animation="{{ weToastAnimation }}">
-  <view
+  <view bindtap="weToastHideHandler"
     class="weToast-box"
     hover-class="weToast-box-hover"
     style="background-color: {{ weToastBoxBG }}">

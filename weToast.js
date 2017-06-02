@@ -36,6 +36,7 @@ class weToast {
    */
   constructor (page) {
     this.setData = page.setData.bind(page);
+    page.weToastHideHandler = this._hide.bind(this);
 
     // 配置动画
     const animation = wx.createAnimation({
