@@ -59,11 +59,11 @@ class weToast {
 
     // 初始化数据
     this.setData({
-      weToastIcon: '',
-      weToastTitle: '',
-      weToastContent: '',
-      weToastBoxBG: TOAST_CONFIG['defaultBG'],
-      weToastAnimation: this._hideAnimation
+      icon: '',
+      title: '',
+      content: '',
+      boxBG: TOAST_CONFIG['defaultBG'],
+      animation: this._hideAnimation
     });
   }
 
@@ -79,11 +79,11 @@ class weToast {
    */
   _add (opt) {
     MSG_QUEUE.push({
-      weToastIcon: ICONS[opt['icon']],
-      weToastTitle: opt['title'],
-      weToastContent: opt['content'],
-      weToastBoxBG: opt['style'] || TOAST_CONFIG['defaultBG'],
-      weToastAnimation: this._showAnimation
+      icon: ICONS[opt['icon']],
+      title: opt['title'],
+      content: opt['content'],
+      boxBG: opt['style'] || TOAST_CONFIG['defaultBG'],
+      animation: this._showAnimation
     });
     // 如果没在显示，则显示
     if (!IS_SHOW) {
@@ -115,9 +115,9 @@ class weToast {
       clearTimeout(HIDDEN_TIMMER);
     }
     this.setData({
-      weToastTitle: '',
-      weToastContent: '',
-      weToastAnimation: this._hideAnimation
+      title: '',
+      content: '',
+      animation: this._hideAnimation
     });
     // 200ms后调用_show
     setTimeout(() => {

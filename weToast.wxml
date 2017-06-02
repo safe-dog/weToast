@@ -1,20 +1,23 @@
 <!--提示卡片模版-->
 <view
   class="weToast-container"
-  animation="{{ weToast.weToastAnimation }}">
+  animation="{{ weToast.animation }}">
   <view bindtap="weToastHideHandler"
     class="weToast-box"
     hover-class="weToast-box-hover"
-    style="background-color: {{ weToast.weToastBoxBG }}">
+    style="background-color: {{ weToast.boxBG }}">
     <view class="weToast-box-l">
-      <image src="data:image/png;base64,{{ weToast.weToastIcon }}" class="weToast-icon"></image>
+      <image
+        src="data:image/png;base64,{{ weToast.icon }}"
+        class="weToast-icon"
+      />
     </view>
 
     <view class="weToast-box-r">
-      <view class="weToast-title" wx:if="{{ !!weToast.weToastTitle }}">
-        {{ weToast.weToastTitle }}
+      <view class="weToast-title" wx:if="{{ !!weToast.title }}">
+        {{ weToast.title }}
       </view>
-      <text class="weToast-content">{{ weToast.weToastContent }}</text>
+      <text class="weToast-content">{{ weToast.content }}</text>
     </view>
   </view>
 </view>
