@@ -5,9 +5,15 @@
   <view
     class="weToast-box"
     style="background-color: {{ weToastBoxBG }}">
-    <view class="weToast-title" wx:if="{{ !!weToastTitle }}">
-      {{ weToastTitle }}
+    <view class="weToast-box-l">
+      <image src="data:image/png;base64,{{ weToastIcon }}" class="weToast-icon"></image>
     </view>
-    <view class="weToast-content">{{ weToastContent }}</view>
+
+    <view class="weToast-box-r">
+      <view class="weToast-title" wx:if="{{ !!weToastTitle }}">
+        {{ weToastTitle }}
+      </view>
+      <view class="weToast-content">{{ weToastContent }}</view>
+    </view>
   </view>
 </view>

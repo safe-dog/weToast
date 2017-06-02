@@ -50,6 +50,7 @@ class weToast {
 
     // 初始化数据
     this.setData({
+      weToastIcon: '',
       weToastTitle: '',
       weToastContent: '',
       weToastBoxBG: TOAST_CONFIG['defaultBG'],
@@ -63,6 +64,7 @@ class weToast {
    */
   _add (opt) {
     MSG_QUEUE.push({
+      weToastIcon: ICONS[opt['icon']],
       weToastTitle: opt['title'],
       weToastContent: opt['content'],
       weToastBoxBG: opt['style'] || TOAST_CONFIG['defaultBG'],
@@ -109,6 +111,7 @@ class weToast {
   success (content, title = '') {
     this._add({
       title, content,
+      icon: 'success',
       style: 'rgba(76, 175, 80, 0.9)'
     })
   }
@@ -119,6 +122,7 @@ class weToast {
   info (content, title = '') {
     this._add({
       title, content,
+      icon: 'info',
       style: 'rgba(0, 188, 212, 0.9)'
     })
   }
@@ -129,6 +133,7 @@ class weToast {
   warning (content, title = '') {
     this._add({
       title, content,
+      icon: 'warning',
       style: 'rgba(255, 152, 0, 0.9)'
     })
   }
@@ -139,6 +144,7 @@ class weToast {
   error (content, title = '') {
     this._add({
       title, content,
+      icon: 'error',
       style: 'rgba(244, 67, 54, 0.9)'
     })
   }
