@@ -2,6 +2,7 @@
  * weToast::v0.1
  * 微信小程序自定义通知信息模块
  * 作者：safe-dog
+ * 网站：safedog.cc
  * 项目：https://github.com/safe-dog/weToast
  */
 

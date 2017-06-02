@@ -14,7 +14,7 @@
       <view class="weToast-title" wx:if="{{ !!weToastTitle }}">
         {{ weToastTitle }}
       </view>
-      <view class="weToast-content">{{ weToastContent }}</view>
+      <text class="weToast-content">{{ weToastContent }}</text>
     </view>
   </view>
 </view>
