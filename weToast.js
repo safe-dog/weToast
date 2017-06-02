@@ -5,12 +5,12 @@
  */
 
 // 默认配置
-var defaultState = {
-  weToastTitle: '',
-  weToastContent: '',
-  weToastBoxBG: 'rgba(76, 175, 80, 0.9)',
-  weToastAnimation: {}
-}
+var TOAST_CONFIG = {
+  // 隐藏卡片时间
+  delay: 2000,
+  // 默认卡片背景颜色
+  defaultBG: 'rgba(76, 175, 80, 0.9)',
+};
 
 // 消息队列
 var MSG_QUEUE = [];
@@ -51,7 +51,7 @@ class weToast {
     MSG_QUEUE.push({
       weToastTitle: opt['title'],
       weToastContent: opt['content'],
-      weToastBoxBG: opt['style'] || defaultState['weToastBoxBG'],
+      weToastBoxBG: opt['style'] || TOAST_CONFIG['defaultBG'],
       weToastAnimation: this._showAnimation
     });
     // 如果没在显示，则显示
@@ -70,7 +70,7 @@ class weToast {
     IS_SHOW = true;
     this.setData(msg);
 
-    setTimeout(this._hide.bind(this), 2000);
+    setTimeout(this._hide.bind(this), TOAST_CONFIG['delay']);
   }
 
   /**
@@ -127,6 +127,14 @@ class weToast {
       title, content,
       style: 'rgba(244, 67, 54, 0.9)'
     })
+  }
+
+  /**
+   * 设置卡片停留时间
+   * 默认2000ms
+   */
+  setDelay (delay = 2000) {
+    TOAST_CONFIG['delay'] = delay;
   }
 }
 
