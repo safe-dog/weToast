@@ -1,7 +1,8 @@
 /**
  * weToast::v0.1
  * 微信小程序自定义通知信息模块
- * 作者：safedog.cc
+ * 作者：safe-dog
+ * 项目：https://github.com/safe-dog/weToast
  */
 
 // 默认配置
