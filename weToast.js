@@ -4,9 +4,7 @@
  * 作者：safedog.cc
  */
 
-/**
- * 默认配置
- */
+// 默认配置
 const defaultState = {
   weToastTitle: '',
   weToastContent: '',
@@ -14,19 +12,31 @@ const defaultState = {
   weToastAnimation: {}
 }
 
+// 消息队列
+const messageQueue = [];
+
 class weToast {
   /**
    * 初始化
    * page = Page对象(this)
    */
   constructor (page) {
-    this.page = page;
-    this.page.setData(defaultState);
+    this.setData = page.setData.bind(page);
 
-    this.animation = wx.createAnimation({
+    // 配置动画
+    const animation = wx.createAnimation({
       duration: 200,
       timingFunction: 'ease'
     });
+
+    // 显示动画数据
+    animation.bottom(100).opacity(1).scale(1).step();
+    this._showAnimation = animation.export();
+
+    // 隐藏动画数据
+    animation.bottom(-100).opacity(0).scale(0).step();
+    this._hideAnimation = animation.export();
+
     // 初始化动画
     this._hide();
   }
@@ -35,12 +45,11 @@ class weToast {
    * 显示消息
    */
   _show (opt) {
-    this.animation.bottom(100).opacity(1).scale(1).step();
-    this.page.setData({
+    this.setData({
       weToastTitle: opt['title'],
       weToastContent: opt['content'],
       weToastBoxBG: opt['style'] || defaultState['weToastBoxBG'],
-      weToastAnimation: this.animation.export()
+      weToastAnimation: this._showAnimation
     });
     setTimeout(this._hide.bind(this), 2000);
   }
@@ -49,11 +58,10 @@ class weToast {
    * 隐藏消息
    */
   _hide () {
-    this.animation.bottom(-100).opacity(0).scale(0).step();
-    this.page.setData({
+    this.setData({
       weToastTitle: '',
       weToastContent: '',
-      weToastAnimation: this.animation.export()
+      weToastAnimation: this._hideAnimation
     });
   }
 
