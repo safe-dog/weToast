@@ -5,7 +5,7 @@
  */
 
 // 默认配置
-const defaultState = {
+var defaultState = {
   weToastTitle: '',
   weToastContent: '',
   weToastBoxBG: 'rgba(76, 175, 80, 0.9)',
@@ -13,7 +13,9 @@ const defaultState = {
 }
 
 // 消息队列
-const messageQueue = [];
+var MSG_QUEUE = [];
+// 是否正在显示
+var IS_SHOW = false;
 
 class weToast {
   /**
@@ -42,15 +44,32 @@ class weToast {
   }
 
   /**
-   * 显示消息
+   * 添加消息到队列
+   * opt = {content, title, style}
    */
-  _show (opt) {
-    this.setData({
+  _add (opt) {
+    MSG_QUEUE.push({
       weToastTitle: opt['title'],
       weToastContent: opt['content'],
       weToastBoxBG: opt['style'] || defaultState['weToastBoxBG'],
       weToastAnimation: this._showAnimation
     });
+    // 如果没在显示，则显示
+    if (!IS_SHOW) {
+      this._show();
+    }
+  }
+
+  /**
+   * 显示消息
+   */
+  _show () {
+    const msg = MSG_QUEUE.shift();
+    if (!msg) return;
+
+    IS_SHOW = true;
+    this.setData(msg);
+
     setTimeout(this._hide.bind(this), 2000);
   }
 
@@ -63,13 +82,18 @@ class weToast {
       weToastContent: '',
       weToastAnimation: this._hideAnimation
     });
+    // 200ms后调用_show
+    setTimeout(() => {
+      IS_SHOW = false;
+      this._show();
+    }, 200);
   }
 
   /**
    * 成功消息
    */
   success (content, title = '') {
-    this._show({
+    this._add({
       title, content,
       style: 'rgba(76, 175, 80, 0.9)'
     })
@@ -79,7 +103,7 @@ class weToast {
    * 提示消息
    */
   info (content, title = '') {
-    this._show({
+    this._add({
       title, content,
       style: 'rgba(0, 188, 212, 0.9)'
     })
@@ -89,7 +113,7 @@ class weToast {
    * 警告消息
    */
   warning (content, title = '') {
-    this._show({
+    this._add({
       title, content,
       style: 'rgba(255, 152, 0, 0.9)'
     })
@@ -99,7 +123,7 @@ class weToast {
    * 错误消息
    */
   error (content, title = '') {
-    this._show({
+    this._add({
       title, content,
       style: 'rgba(244, 67, 54, 0.9)'
     })
