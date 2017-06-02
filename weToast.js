@@ -6,6 +6,8 @@
 
 // 默认配置
 var TOAST_CONFIG = {
+  // 动画时间
+  duration: 200,
   // 隐藏卡片时间
   delay: 2000,
   // 默认卡片背景颜色
@@ -36,7 +38,7 @@ class weToast {
 
     // 配置动画
     const animation = wx.createAnimation({
-      duration: 200,
+      duration: TOAST_CONFIG['duration'],
       timingFunction: 'ease'
     });
 
@@ -86,7 +88,7 @@ class weToast {
     IS_SHOW = true;
     this.setData(msg);
 
-    setTimeout(this._hide.bind(this), TOAST_CONFIG['delay']);
+    setTimeout(this._hide.bind(this), TOAST_CONFIG['delay'] + TOAST_CONFIG['duration']);
   }
 
   /**
@@ -102,7 +104,7 @@ class weToast {
     setTimeout(() => {
       IS_SHOW = false;
       this._show();
-    }, 200);
+    }, TOAST_CONFIG['duration']);
   }
 
   /**
