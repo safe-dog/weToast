@@ -71,3 +71,12 @@ Page({
 
 ### `.error(content, title = '')`
 > 错误信息，姨妈红
+
+## 其他
+
+### 设置卡片停留时间
+> 单位：毫秒
+
+``` js
+toast.setDelay(2000)
+```
