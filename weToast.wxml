@@ -7,10 +7,7 @@
     hover-class="weToast-box-hover"
     style="background-color: {{ weToast.boxBG }}">
     <view class="weToast-box-l">
-      <image
-        src="data:image/png;base64,{{ weToast.icon }}"
-        class="weToast-icon"
-      />
+      <view class="weIcon weIcon-{{ weToast.icon }}-circled weToast-icon" />
     </view>
 
     <view class="weToast-box-r">

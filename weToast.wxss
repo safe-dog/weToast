@@ -1,3 +1,5 @@
+@import "./weIcon.wxss";
+
 .weToast-container {
   position: fixed;
   bottom: -100px;
@@ -54,7 +56,5 @@
   -webkit-box-orient: vertical;
 }
 .weToast-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  color: #FFF;
 }
