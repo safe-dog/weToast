@@ -32,7 +32,6 @@ class weToast {
    */
   constructor (page) {
     this.page = page;
-    // this.setData = page.setData.bind(page);
     page.weToastHideHandler = this._hide.bind(this);
 
     // 配置动画
@@ -63,6 +62,10 @@ class weToast {
     this.page.setData({
       weToast: opt
     })
+  }
+
+  getData (key) {
+    return this.page.data.weToast[key];
   }
 
   /**
@@ -109,6 +112,7 @@ class weToast {
     this.setData({
       title: '',
       content: '',
+      boxBG: this.getData('boxBG'),
       animation: this._hideAnimation
     });
     // 200ms后调用_show
