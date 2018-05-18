@@ -1,6 +1,8 @@
 # weToast
 > 为微信小程序设计的toast消息通知模块
 
+![](screenshots/screen.png)
+
 ## 安装
 
 ### 下载代码
@@ -63,14 +65,22 @@ Page({
 ### `.success(content, title = '')`
 > 成功消息，青绿色
 
+![](screenshots/success.png)
+
 ### `.warning(content, title = '')`
 > 警告消息，橙黄色
+
+![](screenshots/warning.png)
 
 ### `.info(content, title = '')`
 > 提示信息，青蓝色
 
+![](screenshots/info.png)
+
 ### `.error(content, title = '')`
 > 错误信息，姨妈红
+
+![](screenshots/error.png)
 
 ## 其他
 
