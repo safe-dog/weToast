@@ -13,13 +13,12 @@
 }
 .weToast-box {
   width: 200px;
-  background-color: rgba(76, 175, 80, 0.9);
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #DDD;
-  box-shadow: 0px 2px 10px 3px rgba(200,200,200,0.7);
   display: flex;
   flex-direction: row;
+  background-image: linear-gradient(-135deg, #B4EC51 0%, #429321 100%);
+  box-shadow: 0 5px 10px -5px rgba(0,0,0,0.50);
+  border-radius: 8px;
 }
 .weToast-box-hover {
   opacity: 0.8;
@@ -35,7 +34,7 @@
 }
 .weToast-title {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   color: #FFF;
   -webkit-line-clamp: 1;
   overflow: hidden;
@@ -46,7 +45,8 @@
 }
 .weToast-content {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 20px;
   -webkit-line-clamp: 3;
   overflow: hidden;

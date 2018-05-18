@@ -13,7 +13,7 @@ var TOAST_CONFIG = {
   // 隐藏卡片时间
   delay: 2000,
   // 默认卡片背景颜色
-  defaultBG: 'rgba(76, 175, 80, 0.9)',
+  defaultBG: 'linear-gradient(-135deg, #B4EC51 0%, #429321 100%)',
 };
 
 // 消息队列
@@ -129,7 +129,7 @@ class weToast {
     this._add({
       title, content,
       icon: 'ok',
-      style: 'rgba(76, 175, 80, 0.9)'
+      style: 'linear-gradient(-135deg, #B4EC51 0%, #429321 100%)'
     })
   }
 
@@ -140,7 +140,7 @@ class weToast {
     this._add({
       title, content,
       icon: 'info',
-      style: 'rgba(0, 188, 212, 0.9)'
+      style: 'linear-gradient(45deg, #009EFD 0%, #77CDFF 100%)'
     })
   }
 
@@ -151,7 +151,7 @@ class weToast {
     this._add({
       title, content,
       icon: 'attention',
-      style: 'rgba(255, 152, 0, 0.9)'
+      style: 'linear-gradient(-135deg, #FAD961 0%, #F76B1C 100%)'
     })
   }
 
@@ -162,7 +162,7 @@ class weToast {
     this._add({
       title, content,
       icon: 'cancel',
-      style: 'rgba(244, 67, 54, 0.9)'
+      style: 'linear-gradient(-135deg, #F5515F 0%, #D63547 36%, #9F041B 100%)'
     })
   }
 
