@@ -45,7 +45,7 @@
 }
 .weToast-content {
   font-size: 14px;
-  font-weight: 200;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   line-height: 20px;
   -webkit-line-clamp: 3;

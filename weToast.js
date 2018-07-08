@@ -14,6 +14,8 @@ var TOAST_CONFIG = {
   delay: 2000,
   // 默认卡片背景颜色
   defaultBG: 'linear-gradient(-135deg, #B4EC51 0%, #429321 100%)',
+  // 默认卡片阴影颜色
+  defaultSHADOW: 'rgba(0,0,0,0.50)'
 };
 
 // 消息队列
@@ -54,6 +56,7 @@ class weToast {
       title: '',
       content: '',
       boxBG: TOAST_CONFIG['defaultBG'],
+      SHADOW: TOAST_CONFIG['defaultSHADOW'],
       animation: this._hideAnimation
     });
   }
@@ -78,6 +81,7 @@ class weToast {
       title: opt['title'],
       content: opt['content'],
       boxBG: opt['style'] || TOAST_CONFIG['defaultBG'],
+      SHADOW: opt['shadow'] || TOAST_CONFIG['defaultSHADOW'],
       animation: this._showAnimation
     });
     // 如果没在显示，则显示
@@ -113,6 +117,7 @@ class weToast {
       title: '',
       content: '',
       boxBG: this.getData('boxBG'),
+      SHADOW: this.getData('SHADOW'),
       animation: this._hideAnimation
     });
     // 200ms后调用_show
@@ -129,7 +134,8 @@ class weToast {
     this._add({
       title, content,
       icon: 'ok',
-      style: 'linear-gradient(-135deg, #B4EC51 0%, #429321 100%)'
+      style: 'linear-gradient(135deg, #B4EC51 0%, #429321 100%)',
+      shadow: 'rgba(180, 236, 81, 0.5)',
     })
   }
 
@@ -140,7 +146,8 @@ class weToast {
     this._add({
       title, content,
       icon: 'info',
-      style: 'linear-gradient(45deg, #009EFD 0%, #77CDFF 100%)'
+      style: 'linear-gradient(-45deg, #009EFD 0%, #77CDFF 100%)',
+      shadow: 'rgba(0, 158, 253, 0.5)'
     })
   }
 
@@ -151,7 +158,8 @@ class weToast {
     this._add({
       title, content,
       icon: 'attention',
-      style: 'linear-gradient(-135deg, #FAD961 0%, #F76B1C 100%)'
+      style: 'linear-gradient(135deg, #FAD961 0%, #F76B1C 100%)',
+      shadow: 'rgba(250, 217, 97, 0.5)'
     })
   }
 
@@ -162,7 +170,8 @@ class weToast {
     this._add({
       title, content,
       icon: 'cancel',
-      style: 'linear-gradient(-135deg, #F5515F 0%, #D63547 36%, #9F041B 100%)'
+      style: 'linear-gradient(135deg, #F5515F 0%, #D63547 36%, #9F041B 100%)',
+      shadow: 'rgba(245, 81, 95, 0.5)'
     })
   }
 

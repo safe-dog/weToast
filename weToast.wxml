@@ -5,7 +5,7 @@
   <view bindtap="weToastHideHandler"
     class="weToast-box"
     hover-class="weToast-box-hover"
-    style="background-image: {{ weToast.boxBG }}">
+    style="background-image: {{ weToast.boxBG }};box-shadow: 0 5px 10px -5px {{ weToast.SHADOW }};">
     <view class="weToast-box-l">
       <view class="weIcon weIcon-{{ weToast.icon }}-circled weToast-icon" />
     </view>
